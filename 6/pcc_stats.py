@@ -64,7 +64,6 @@ def diehard_pybites(files=None):
     for challenge in files:
         challenge_id, user = challenge.split("/")
         if user in IGNORE: continue
-        print(f"{challenge_id} {user}")
         users[user] += 1
         popular_challenges[challenge_id] += 1
 
