@@ -25,20 +25,14 @@ def get_us_bank_holidays(content=content):
     holidays = defaultdict(list)
 
     doc = BeautifulSoup(content, "html.parser")
-    rows = [
-        el
-        for el in doc("td")
-        if "style" in el.attrs and el["style"] == "white-space: nowrap"
-    ]
+    table = doc.find_all("table", class_="list-table")[0]
     for holiday, datetime in [
         (next(el.parent("a")[0].stripped_strings), el.parent("time")[0]["datetime"])
-        for el in rows
+        for el in table("td")
+        if "style" in el.attrs and el["style"] == "white-space: nowrap"
     ]:
-        month = datetime[5:7]
+        month = datetime.split("-")[1]
         holidays[month].append(holiday)
 
     print(holidays)
     return holidays
-
-
-get_us_bank_holidays()
