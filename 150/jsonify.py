@@ -1,6 +1,4 @@
 import json
-import io
-import csv
 
 members = """
 id,first_name,last_name,email
