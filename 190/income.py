@@ -30,8 +30,7 @@ def get_income_distribution(xml=countries):
 
     ns = {"wb": "http://www.worldbank.org"}
 
-    countries = root.findall("wb:country", ns)
-    for country in countries:
+    for country in root.findall("wb:country", ns):
         country_name = country.find("wb:name", ns).text
         country_income_level = country.find("wb:incomeLevel", ns).text
         distribution[country_income_level].append(country_name)
