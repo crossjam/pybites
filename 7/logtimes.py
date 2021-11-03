@@ -38,7 +38,7 @@ def time_between_shutdowns(loglines):
     Return this datetime.timedelta object.
     """
     shutdown_times = [
-        convert_to_datetime(line) for line in loglines if "Shutdown" in line
+        convert_to_datetime(line) for line in loglines if SHUTDOWN_EVENT in line
     ]
 
     return shutdown_times[-1] - shutdown_times[0]
