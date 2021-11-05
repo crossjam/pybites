@@ -16,7 +16,7 @@ def within_schedule(utc, *timezones):
                 for tz in timezones
             )
         )
-    except Exception as e:
+    except pytz.exceptions.UnknownTimeZoneError as e:
         raise ValueError()
 
 
