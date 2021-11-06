@@ -23,8 +23,8 @@ def pretty_date(date):
     if not isinstance(date, datetime) or date > NOW:
         raise ValueError()
 
+    delta = NOW - date
     for offset, date_str, divider in TIME_OFFSETS:
-        delta = NOW - date
         if delta.total_seconds() < offset:
             if not divider:
                 return date_str.format(int(delta.total_seconds()))
