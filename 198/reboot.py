@@ -40,7 +40,7 @@ def calc_max_uptime(reboots):
 
     datetimes = sorted(datetimes)
     deltas = [(d2 - d1, d2) for d1, d2 in zip(datetimes, datetimes[1:])]
-    print(deltas)
+
     max_delta, max_delta_end = max(deltas, key=lambda p: p[0])
     return max_delta.days, max_delta_end.strftime(f"{THIS_YEAR}-%m-%d")
 
