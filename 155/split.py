@@ -14,9 +14,10 @@ def split_words_and_quoted_text(text):
     ['Should', 'give', '3 elements only']
     """
 
-    # for some reason, order of capture groups matters, ?!
+    # order of capture groups matters
+    # | is not greedy, goes from left to right
+
     words_rgx = re.compile(r'("[^"]+")|(\S+)')
-    # words_rgx = re.compile(r'(\S+)|("[^"]+")')
     return [qword[1:-1] if qword else word for qword, word in words_rgx.findall(text)]
 
 
