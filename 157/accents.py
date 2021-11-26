@@ -17,7 +17,12 @@ def filter_accents(text):
     """
 
     text = unicodedata.normalize("NFKC", text).lower()
-    return list({c for c in text if "WITH" in unicodedata.name(c)})
+    # Completely kludgy solution later in this comment
+    # This article explains Unicode decomposition
+    # https://towardsdatascience.com/what-on-earth-is-unicode-normalization-56c005c55ad0
+    #
+    # return list({c for c in text if "WITH" in unicodedata.name(c)})
+    return {c for c in text if unicodedata.decomposition(c)}
 
 
 if __name__ == "__main__":
