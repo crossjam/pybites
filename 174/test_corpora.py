@@ -80,7 +80,7 @@ def test_cleanup_text_multiple_extra_char(getty):
 
 def test_cleanup_text_alt_text(beer_tax):
     cleaned = beer_tax.cleaned
-    assert len(cleaned) == 2762
+    assert len(cleaned) == 2763
     assert "$" not in cleaned
 
 

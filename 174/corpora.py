@@ -213,8 +213,7 @@ class Corpora:
 
     def __post_init__(self):
         self.stopwords = STOPWORDS
-        if self.txt == GETTYSBURG:
-            self.txt += " "
+        self.txt += " "
 
     @property
     def cleaned(self) -> str:
