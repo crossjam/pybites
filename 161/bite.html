@@ -1,0 +1,31 @@
+<p>Complete <code>count_dirs_and_files</code> traversing the passed in <code>directory</code> path.</p>
+<p>Return a <em>tuple</em> of <em>(number_of_directories, number_of_files)</em></p>
+<p>Let's use the <code>tree</code> command to show an example:</p>
+<pre>$ mkdir -p project/a/1/I project/a/1/II project/a/2 project/b/1/I
+tree project/
+project/
+├── a
+│&nbsp;&nbsp; ├── 1
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── I
+│&nbsp;&nbsp; │&nbsp;&nbsp; └── II
+│&nbsp;&nbsp; └── 2
+└── b
+    └── 1
+        └── I
+
+8 directories, 0 files</pre>
+<p>Your solution should match these counts:</p>
+<pre>$ python
+&gt;&gt;&gt; from tree import count_dirs_and_files
+&gt;&gt;&gt; count_dirs_and_files('project')
+(8, 0)
+</pre>
+<p>Let's add two files:</p>
+<pre>$ touch project/a/1/I/bob
+$ touch project/a/2/julian
+$ python
+&gt;&gt;&gt; from tree import count_dirs_and_files
+&gt;&gt;&gt; count_dirs_and_files('project')
+(8, 2)
+</pre>
+<p>Good luck and have fun!</p>
